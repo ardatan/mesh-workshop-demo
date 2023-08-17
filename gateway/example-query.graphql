@@ -13,6 +13,9 @@ query ExampleQuery {
         name
         price
         weight
+        inventory {
+          inStock
+        }
         reviews {
           upc
           userId

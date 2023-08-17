@@ -1,4 +1,9 @@
 sources:
+  - name: Accounts
+    handler:
+      openapi:
+        source: http://localhost:4001/openapi.json
+        ignoreErrorResponses: true
   - name: Products
     handler:
       jsonSchema:
@@ -10,11 +15,6 @@ sources:
             path: /products/{args.upc}
             responseTypeName: Product
             responseSample: { upc: "1", name: "Table", price: 899, weight: 100 }
-  - name: Accounts
-    handler:
-      openapi:
-        source: http://localhost:4001/openapi.json
-        ignoreErrorResponses: true
   - name: Inventory
     handler:
       grpc:

@@ -11,7 +11,7 @@ extend type Product {
         sourceTypeName: "Query",
         sourceFieldName: "InventoryService_GetInventoryByUpc",
         requiredSelectionSet: "{ upc }",
-        sourceArgs: { upc: "{root.upc}" }
+        sourceArgs: { input: { upc: "{root.upc}" } }
     )
 }
 
