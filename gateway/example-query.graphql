@@ -1,0 +1,30 @@
+query ExampleQuery {
+  users {
+    id
+    name
+    birthDate
+    username
+    reviews {
+      upc
+      userId
+      body
+      product {
+        upc
+        name
+        price
+        weight
+        reviews {
+          upc
+          userId
+          body
+          user {
+            id
+            name
+            birthDate
+            username
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "mesh-demo-workshop",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "license": "MIT",
+  "workspaces": [
+    "gateway",
+    "services/**"
+  ],
+  "scripts": {
+    "start-gateway": "yarn workspace gateway start",
+    "start:services": "concurrently \"yarn start-accounts\" \"yarn start-products\" \"yarn start-inventory\" \"yarn start-reviews\"",
+    "start-accounts": "yarn workspace accounts start",
+    "start-products": "yarn workspace products start",
+    "start-inventory": "yarn workspace inventory start",
+    "start-reviews": "yarn workspace reviews start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}

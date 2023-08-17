@@ -1,0 +1,29 @@
+sources:
+  - name: Products
+    handler:
+      jsonSchema:
+        endpoint: http://localhost:4002
+        operations:
+          - type: Query
+            field: productByUpc
+            method: GET
+            path: /products/{args.upc}
+            responseTypeName: Product
+            responseSample: { upc: "1", name: "Table", price: 899, weight: 100 }
+  - name: Accounts
+    handler:
+      openapi:
+        source: http://localhost:4001/openapi.json
+        ignoreErrorResponses: true
+  - name: Inventory
+    handler:
+      grpc:
+        endpoint: localhost:4003
+  - name: Reviews
+    handler:
+      graphql:
+        endpoint: http://localhost:4004/graphql
+
+additionalTypeDefs: ./additionalTypeDefs.graphql
+documents:
+  - "./example-query.graphql"

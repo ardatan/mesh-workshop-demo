@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+message InventoryRequest {
+    string upc = 1;
+}
+
+message Inventory {
+    string upc = 1;
+    int32 inStock = 2;
+}
+
+service InventoryService {
+    rpc GetInventoryByUpc(InventoryRequest) returns (Inventory) {}
+}
